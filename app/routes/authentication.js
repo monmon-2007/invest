@@ -1,8 +1,7 @@
 var User = require('../models/user');
+var Robinhood = require('robinhood');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
-var robinhood = require('robinhood');
-var Robinhood = robinhood();
 
 module.exports = (router) => {
 
