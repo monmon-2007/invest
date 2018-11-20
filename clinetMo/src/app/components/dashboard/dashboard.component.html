@@ -1,0 +1,21 @@
+<div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<h1>Welcome to dashboard</h1>
+
+
+
+
+<form class="example" [formGroup]="form" (submit) = "onSearchSubmit()">
+  <input type="text" formControlName="search" class="form-control" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<!-- TradingView Widget BEGIN -->
+<div id="myWidgetContainer"></div>
+<!-- TradingView Widget END -->
+
+</div>
+<br><br>
+<div class="tradingview-widget-container">
+</div>
