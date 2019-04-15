@@ -1,0 +1,16 @@
+.my-custom-scrollbar {
+  position: relative;
+  height: 1000px;
+  width: 500px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
+.has-error {
+  color: red;
+}
+
+.has-success {
+  color: green;
+}

@@ -14,6 +14,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
+import { StockBarComponent } from './components/stock-bar/stock-bar.component';
+import { MiniChartComponent } from './components/mini-chart/mini-chart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,16 +27,19 @@ import { NotAuthGuard } from './guards/notAuth.guard';
     DashboardComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    StockBarComponent,
+    MiniChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     ReactiveFormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
   ],
   providers: [AuthService, AuthGuard, NotAuthGuard],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

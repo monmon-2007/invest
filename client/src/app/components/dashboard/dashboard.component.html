@@ -1,15 +1,52 @@
 <div class="container">
-  <h1>Welcome to dashboard</h1>
 
-  <form class="example" [formGroup]="form" (submit)="onSearchSubmit()">
-    <input type="text" formControlName="search" class="form-control" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
 
-  <!-- TradingView Widget BEGIN -->
-  <div id="myWidgetContainer"></div>
-  <!-- TradingView Widget END -->
-</div>
+<button *ngIf= "ticker" (click)='addToWatch()'>Watch</button>
+<br>
+
+  <br>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <form class="example" [formGroup]="form" (submit)="onSearchSubmit()">
+        <input type="text" formControlName="search" class="form-control" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+
+      <!-- TradingView Widget BEGIN -->
+      <div id="myWidgetContainer"></div>
+      <!-- TradingView Widget END -->
+
+     </div>
+     <!--*********************** 2nd Table ************************ -->
+
+    <div  class="col-sm-4">
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+          <thead>
+            <tr *ngIf="fullWatchListItems">
+              <th scope="col">Ticker </th>
+
+              <th scope="col">Chart</th>
+              <th scope="col">Price</th>
+              <th scope="col">Change</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let hero of fullWatchListItems">
+            <td *ngIf="hero.quote" scope="row">{{hero.ticker}} <p *ngIf="hero.quote">{{hero.quote.quote.companyName}}</p></td>
+              <td *ngIf="hero.quote">  <app-mini-chart  *ngIf="hero.quote.quote.previousClose"  [customTitle]="hero.data" [customTitle2]="hero.quote.quote.previousClose"></app-mini-chart></td>
+              <td *ngIf="hero.quote" [ngClass]="{'has-error': hero.price<hero.quote.quote.previousClose,'has-success': hero.price>hero.quote.quote.previousClose }" >{{hero.price}}</td>
+              <td *ngIf="hero.quote" [ngClass]="{'has-error': hero.quote.quote.extendedChange<0,'has-success': hero.quote.quote.extendedChange>0}">% {{hero.quote.quote.extendedChange}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!--*********************** End Table ************************ -->
+  </div>
+
+
 
 <br><br>
+
 <div class="tradingview-widget-container"></div>

@@ -1,4 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
+<br>
+<div class="w3-container w3-content" style="max-width:1400px;">
+<div class="row">
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData2"  [customTitle]="passData2"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData2"  [customTitle]="passData2"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+
+
+
+
+
+    <!-- <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar>
+    <app-stock-bar  *ngIf="passData"  [customTitle]="passData"></app-stock-bar> -->
+    <!-- <app-stock-bar  [customTitle]=test></app-stock-bar>
+    <app-stock-bar  [customTitle]=test></app-stock-bar>
+    <app-stock-bar  [customTitle]=test></app-stock-bar>
+    <app-stock-bar  [customTitle]=test></app-stock-bar>
+    <app-stock-bar  [customTitle]=test></app-stock-bar> -->
+</div>
+</div>
+<!-- <app-stock-bar></app-stock-bar> -->
 <flash-messages></flash-messages>
 <router-outlet></router-outlet>

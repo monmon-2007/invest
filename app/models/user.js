@@ -13,7 +13,8 @@ var UserSchema = new Schema({
   address: { type: String, required: true },
   country: { type: String, required: true },
   state: { type: String, required: true },
-  zip: { type: String, required: true }
+  zip: { type: String, required: true },
+  watchlist: {type: Array}
 });
 
 UserSchema.pre('save', function (next) {

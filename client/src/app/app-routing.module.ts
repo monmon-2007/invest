@@ -5,8 +5,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { StockBarComponent } from './components/stock-bar/stock-bar.component'
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
+import { MiniChartComponent } from './components/mini-chart/mini-chart.component'
 
 const appRoutes: Routes = [
   {
@@ -14,10 +16,19 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'stock-bar',
+    component: StockBarComponent
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     canActivate: [NotAuthGuard]
 
+  },
+  {
+    path: 'mini-chart',
+    component: MiniChartComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',

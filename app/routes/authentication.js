@@ -4,6 +4,36 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 
 module.exports = (router) => {
+  router.get('/Mina', function (req, res) {
+    console.log("hello")
+    res.send("hello Minddda");
+  });
+
+  router.post('/watchList',function(req,res){
+      User.findOne({ username: req.body.username.toLowerCase()} ).exec(function(err,user) {
+        if(user.watchlist.includes(req.body.stock))
+          res.send("The stok exsists on the watch list")
+        else{
+          user.watchlist.push( req.body.stock );
+        }
+         user.save(function(err){
+           if(err)
+            res.send("Unknown Error")
+          else {
+            res.send("Success!")
+          }
+           // something here
+         });
+      });
+  })
+
+  router.post('/getWatchList',function(req,res){
+
+      User.findOne({ username: req.body.username.toLowerCase()} ).exec(function(err,user) {
+        res.send(user.watchlist)
+  })
+})
+
 
   router.post('/user', function (req, res) {
     var user = new User();
@@ -114,6 +144,8 @@ module.exports = (router) => {
       res.send(body);
     });
   });
+
+;
 
   //****************************************Auth
   router.use((req, res, next) => {

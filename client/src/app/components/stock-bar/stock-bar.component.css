@@ -35,7 +35,51 @@ body {
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
   background-color: #f1f1f1;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis-title {
+  text-anchor: end;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.axis--y .tick:not(.tick--one) line {
+  stroke-opacity: .15;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.area {
+  fill-opacity: 0.6;
+}
+
+.area--below {
+  fill: #de77ae;
+}
+
+.area--above {
+  fill: #7fbc41;
+}
+p{
+  font-size:80%;
 }
