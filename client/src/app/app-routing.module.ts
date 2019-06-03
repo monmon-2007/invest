@@ -9,8 +9,14 @@ import { StockBarComponent } from './components/stock-bar/stock-bar.component'
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { MiniChartComponent } from './components/mini-chart/mini-chart.component'
+import { TestCompoComponent } from './components/test-compo/test-compo.component'
+
 
 const appRoutes: Routes = [
+  {
+    path: 'test',
+    component: TestCompoComponent
+  },
   {
     path: '',
     component: HomeComponent

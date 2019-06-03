@@ -16,10 +16,17 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { StockBarComponent } from './components/stock-bar/stock-bar.component';
 import { MiniChartComponent } from './components/mini-chart/mini-chart.component';
-
+import { TestCompoComponent } from './components/test-compo/test-compo.component';
+import {MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule} from '@angular/material';
 
 
 @NgModule({
+  exports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -29,9 +36,14 @@ import { MiniChartComponent } from './components/mini-chart/mini-chart.component
     LoginComponent,
     ProfileComponent,
     StockBarComponent,
-    MiniChartComponent
+    MiniChartComponent,
+    TestCompoComponent
   ],
   imports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
     BrowserModule,
     AppRoutingModule,
     HttpModule,

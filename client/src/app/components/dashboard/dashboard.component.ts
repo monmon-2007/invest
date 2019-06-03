@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 const socket = require('socket.io-client')('https://ws-api.iextrading.com/1.0/tops')
 import { ActivatedRoute } from '@angular/router';
-
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 
 declare const TradingView: any;
@@ -72,8 +72,12 @@ export class DashboardComponent implements OnInit {
     this.ticker = this.form.get('search').value;
     this.updateTradingView(this.form.get('search').value);
   }
-  addToWatch(){
-    this.authService.addToWatchList(this.ticker).subscribe(data=>console.log(data))
+  async addToWatch(){
+    await this.authService.addToWatchList(this.ticker).subscribe(data=>{console.log(data)
+    this.getWatchList();
+    }
+  )
+
   }
   counter = 0
 
@@ -84,11 +88,13 @@ export class DashboardComponent implements OnInit {
       for(var i=0;i<data.length;i++){
       this.getStockData(this.watchListItems[i],this.fullWatchListItems)
 
-      console.log(this.fullWatchListItems)
+
+      this.fullWatchListItems.sort(function(a, b){
+        console.log(this.fullWatchListItems)
+        return a.ticker - b.ticker;
+      });
       }
-
       this.StreamData(this.watchListItems)
-
     })
 
   }
@@ -101,7 +107,7 @@ export class DashboardComponent implements OnInit {
       data = this.dataChartRefactor(data)
       //this.authService.getQuote(ticker).subscribe()
       var x ={
-        "ticker": ticker,
+        "ticker": ticker.toUpperCase(),
         "data":   data,
         "price": data[data.length-1].average
       }
